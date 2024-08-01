@@ -1,3 +1,7 @@
 This is is clone of Work page of Refocus website
 <br>
-i am making this using Reactjs
+This website is made using Reactjs, Tailwind  and framer-motion
+<br>
+For Smooth Scrolling -> LocomotiveJs
+<br>
+For Animation -> framermotion

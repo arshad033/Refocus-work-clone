@@ -1,8 +1,9 @@
 import React from "react";
 import Post from "./Post";
+import { useState } from 'react'
 
 function Posts() {
-  const post = [
+  const [post, setPost] = useState ([
     {
       title: "Up Next: News",
       headind: "Insights and behind the scences",
@@ -10,7 +11,9 @@ function Posts() {
       button: "",
       footHeading: "Explore what drives our team",
       width: "30%",
-      hover:"bg-zinc-200"
+      hover:false,
+      hoverVal: 'bg-zinc-200',
+      textColor: 'text-black'
     },
     {
       title: "Get In Touch",
@@ -19,13 +22,23 @@ function Posts() {
       button: "Contact Us",
       footHeading: "",
       width: "70%",
-      hover:"bg-voilet-500"
+      hover:false,
+      hoverVal: 'bg-violet-500',
+      textColor:'text-white'
     },
-  ];
+  ])
+  const handleHover = (index)=>{
+      setPost((prev)=>prev.map((item, ind)=>index == ind ? {...item, hover: true }: {...item}))
+      console.log(post);
+  }
+  const handleLeave = (index)=>{
+    setPost((prev)=>prev.map((item, ind)=>index == ind ? {...item, hover: false }: {...item}))
+    console.log(post);
+}
   return (
-    <div className="max-w-screen-xl mx-auto flex gap-1 mt-12">
+    <div className="max-w-screen-xl mx-auto flex gap-1 mt-36">
       {post.map((item, index) => (
-        <Post key={index} item={item} />
+        <Post key={index} item={item} index={index} handleHover={handleHover} handleLeave={handleLeave}/>
       ))}
     </div>
   );

@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaArrowTrendUp } from "react-icons/fa6";
+import {motion} from 'framer-motion'
 
-function Project({ item }) {
+function Project({ item, index, showVideo, hideVideo }) {
   return (
-    <div className='flex justify-between items-center px-24 h-60'>
+    <motion.div initial={{ py: "0%" }} animate={{ py: `${23}rem` }} onMouseEnter={()=>showVideo(index)} onMouseLeave={hideVideo} className={`flex justify-between items-center px-24 h-[23rem] duration-500 ${item.hover && `${item.hoverVal}`} `}>
         <div>
             <h1 className='text-4xl font-bold'>{item.projectName}</h1>
         </div>
@@ -13,8 +14,8 @@ function Project({ item }) {
               {item.buttons.map((item, index)=><button key={index} className='rounded-3xl h-9 text-black bg-white capitalize min-w-40 font-semibold flex items-center px-4 justify-between text-sm'>{item} <FaArrowTrendUp /></button>)}
             </div>
         </div>
-    </div>
+    </motion.div>
   )
 }
 
-export default Project
+export default Project;

@@ -6,10 +6,13 @@ import Projects from "./components/Projects";
 import Logos from "./components/Logos";
 import Posts from "./components/Posts";
 import Footer from "./components/Footer";
+import LocomotiveScroll from 'locomotive-scroll';
+
 
 function App() {
+  const locomotiveScroll = new LocomotiveScroll();
   return (
-      <div className="bg-black w-full min-h-[100vh] p-1 overflow-x-hidden">
+      <div className="bg-black w-full min-h-[100vh] overflow-x-hidden">
         <Nav />
         <Work />
         <Stripes/>
