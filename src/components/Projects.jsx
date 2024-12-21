@@ -155,7 +155,7 @@ function Projects() {
           initial={{ y: pos, x: "-40%" }}
           animate={{ y: pos + `rem` }}
           transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.4 }}
-          className={`relative h-[23rem] w-[27rem] left-[40%] overflow-hidden ${
+          className={`relative h-[18rem] w-[22rem] md:h-[23rem] md:w-[27rem] left-[40%] overflow-hidden ${
             videodiv == false && "hidden"
           }`}
         >
