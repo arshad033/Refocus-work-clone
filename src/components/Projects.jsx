@@ -150,7 +150,7 @@ function Projects() {
         />
       ))}
       {/* it means we can not select this and the the div behind this is selectable */}
-      <div className="w-full h-full absolute -top-10 pointer-events-none">
+      <div className="w-full h-full absolute top-[6rem] md:-top-10 pointer-events-none">
         <motion.div
           initial={{ y: pos, x: "-40%" }}
           animate={{ y: pos + `rem` }}

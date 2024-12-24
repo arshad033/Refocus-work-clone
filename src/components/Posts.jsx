@@ -36,7 +36,7 @@ function Posts() {
     console.log(post);
 }
   return (
-    <div className="max-w-screen-xl mx-auto flex gap-1 mt-36">
+    <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row md:justify-between p-4 gap-4 md:gap-0 md:p-0 md:px-[4.8rem] md:mt-36">
       {post.map((item, index) => (
         <Post key={index} item={item} index={index} handleHover={handleHover} handleLeave={handleLeave}/>
       ))}

@@ -2,10 +2,17 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 function Post({ item, index, handleHover, handleLeave }) {
   return (
-    <div onMouseOver={()=>handleHover(index)} onMouseLeave={()=>handleLeave(index)}
-      className={`h-[60vh] ${item.hover ? `${item.textColor}` : 'text-white'} rounded-xl w-[100%] p-4 flex flex-col gap-8  justify-between ${item.hover == true ? `${item.hoverVal}`: 'bg-zinc-800'}`}
-      style={{ width: `${item.width}`}}
-    > 
+    <div
+      onMouseOver={() => handleHover(index)}
+      onMouseLeave={() => handleLeave(index)}
+      className={`md:h-[60vh] rounded-xl p-8 md:p-[1.3rem] flex flex-col gap-8  justify-between  ${
+        item.hover ? `${item.textColor}` : "text-white"
+      } ${
+        item.hover == true ? `${item.hoverVal}` : "bg-zinc-800"
+      }`}
+      // w-[${item.width}]
+      // style={{ width: `${item.width}` }}
+    >
       <div>
         <div className="flex justify-between">
           <h1>{item.title}</h1>
@@ -18,7 +25,7 @@ function Post({ item, index, handleHover, handleLeave }) {
 
       <div>
         {item.mainHeading !== "" ? (
-          <h1 className="text-8xl font-semibold">{item.mainHeading}</h1>
+          <h1 className="text-[10vw] md:text-8xl font-semibold">{item.mainHeading}</h1>
         ) : (
           ""
         )}

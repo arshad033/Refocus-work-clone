@@ -5,7 +5,7 @@ import {motion} from 'framer-motion'
 // motion div and initial={{ py: "0%" }} animate={{ py: `${23}rem` }} 
 function Project({ item, index, showVideo, hideVideo }) {
   return (
-    <div onMouseEnter={()=>showVideo(index)} onMouseLeave={hideVideo} className={`flex flex-col md:flex-row justify-between items-center py-8 md:py-0 px-24 h-[35rem] md:h-[23rem] duration-500 ${item.hover && `${item.hoverVal}`} `}>
+    <div onMouseEnter={()=>showVideo(index)} onMouseLeave={hideVideo} className={`flex flex-col md:flex-row justify-between items-center py-8 md:py-0 px-24 h-[30rem] hover:h-[38rem] md:hover:h-[23rem] md:h-[23rem] duration-500 ${item.hover && `${item.hoverVal}`} `}>
         <div>
             <h1 className='text-4xl font-bold'>{item.projectName}</h1>
         </div>
