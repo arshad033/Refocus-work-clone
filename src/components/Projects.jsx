@@ -1,6 +1,6 @@
 import React from "react";
 import Project from "./Project";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Arqitel from "../video/Arqitel.mp4";
 import EcoHomes from "../video/EcoHomes.webm";
@@ -122,8 +122,21 @@ function Projects() {
       hover: false,
     },
   ]);
-  
-
+  const video = [
+    Arqitel,
+    EcoHomes,
+    HealthSync,
+    TravelMate,
+    EduLearn,
+    brightwave,
+    yahoo,
+    sevdesk,
+    keystone,
+    intenseye,
+    starred,
+    remind,
+    rocketchat,
+  ];
   const [pos, setPos] = useState(0);
   const [videodiv, setVideodiv] = useState(0);
   const showVideo = (index) => {
@@ -149,7 +162,7 @@ function Projects() {
           hideVideo={hideVideo}
         />
       ))}
-      {/* it means we can not select this and the the div behind this is selectable */}
+      {/* it means we can not select this and the div behind this is selectable */}
       <div className="w-full h-full absolute top-[6rem] md:-top-10 pointer-events-none">
         <motion.div
           initial={{ y: pos, x: "-40%" }}
@@ -159,176 +172,23 @@ function Projects() {
             videodiv == false && "hidden"
           }`}
         >
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.4 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={Arqitel}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.4 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={EcoHomes}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.4 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={HealthSync}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.4 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={TravelMate}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={EduLearn}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          {/* /// */}
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={brightwave}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={yahoo}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={sevdesk}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={keystone}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={intenseye}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={starred}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={remind}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            className="h-full w-full rounded-md"
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-          >
-            <video
-              className="w-full h-full object-cover rounded-md"
-              src={rocketchat}
-              autoPlay
-              loop
-              muted
-            ></video>
-          </motion.div>
+          {video.map((item) => {
+            return (
+              <motion.div
+                animate={{ y: -pos + `rem` }}
+                className="h-full w-full rounded-md"
+                transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.4 }}
+              >
+                <video
+                  className="w-full h-full object-cover rounded-md"
+                  src={item}
+                  autoPlay
+                  loop
+                  muted
+                ></video>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </div>
