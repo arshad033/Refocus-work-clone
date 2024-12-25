@@ -15,6 +15,8 @@ import remind from "../video/remind.webm";
 import rocketchat from "../video/rocketchat.webm";
 import sevdesk from "../video/sevdesk.webm";
 import starred from "../video/starred.webm";
+
+
 function Projects() {
   const [project, setProject] = useState([
     {
@@ -68,7 +70,7 @@ function Projects() {
     {
       projectName: "Yahoo",
       description:
-        "We enhanced the New York Fashion Week, by creating a fully digital AR fashion experience for Yahoo and Maisie Wilen, featuring holographic 3D models and an integrated web shop.",
+        "We elevated New York Fashion Week with a digital AR experience featuring 3D holographic models and an integrated web shop.",
       buttons: ["Live Website", "Yahoo!"],
       hoverVal: "bg-[#FF9F00]",
       hover: false,
@@ -76,7 +78,7 @@ function Projects() {
     {
       projectName: "Sevdesk",
       description:
-        "We collaborated with sevdesk, Germany and Austria's leading accounting software, to design and develop their new website in Webflow. With a strong emphasis on SEO integrity, we created a cohesive user experience across over 2,000 pages.",
+        "We partnered with sevdesk, Germany and Austria's top accounting software, to design a 2,000-page Webflow website.",
       buttons: ["Live Website"],
       hoverVal: "bg-[#00A9B4]",
       hover: false,
@@ -100,7 +102,7 @@ function Projects() {
     {
       projectName: "Starred",
       description:
-        "Starred's B2B product is presented with a human touch with a brand direction that reflects their human-first mindset and a site that is as informative as it is approachable.",
+        "Starred's B2B product features a human-first brand, combining approachability with an informative, user-friendly website.",
       buttons: ["Live Website", "Case Study"],
       hoverVal: "bg-[#FF6347]",
       hover: false,
@@ -108,7 +110,7 @@ function Projects() {
     {
       projectName: "Remind",
       description:
-        "Remind's new website was designed and developed to be easy to maintain and ready to learn, reflecting their mission to connect students and families.",
+        "Remind's website was redesigned for easy maintenance, supporting their mission to connect students and families.",
       buttons: ["Live Website", "Case study"],
       hoverVal: "bg-[#8B8B8B]",
       hover: false,
@@ -116,7 +118,7 @@ function Projects() {
     {
       projectName: "RocketChat",
       description:
-        "We built a beautiful, clean website in Webflow for RocketChat that is scalable, easy to maintain and built in a modular manner for future changes.",
+        "We created a clean, scalable, and modular Webflow website for RocketChat, ensuring easy maintenance.",
       buttons: ["Live Website"],
       hoverVal: "bg-[#33A1D9]",
       hover: false,
@@ -139,8 +141,24 @@ function Projects() {
   ];
   const [pos, setPos] = useState(0);
   const [videodiv, setVideodiv] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+    console.log(isSmallScreen);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }})
+
   const showVideo = (index) => {
-    setPos(index * 23);
+    if(isSmallScreen){
+      setPos(index * 30);
+    }
+    else{
+      setPos(index * 23);
+    }
     setVideodiv(1);
     setProject((prev) =>
       prev.map((item, ind) => (index === ind ? { ...item, hover: true } : item))
@@ -151,6 +169,9 @@ function Projects() {
     setVideodiv(0);
     setProject((prev) => prev.map((item) => ({ ...item, hover: false })));
   };
+
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 600);
+
   return (
     <div className="text-white w-full relative mt-40">
       {project.map((item, index) => (
@@ -165,18 +186,18 @@ function Projects() {
       {/* it means we can not select this and the div behind this is selectable */}
       <div className="w-full h-full absolute top-[6rem] md:-top-10 pointer-events-none">
         <motion.div
-          initial={{ y: pos, x: "-40%" }}
-          animate={{ y: pos + `rem` }}
+          initial={{ y: pos}}
+          animate={{ y: pos + `rem`}}
           transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.4 }}
-          className={`relative h-[18rem] w-[22rem] md:h-[23rem] md:w-[27rem] left-[40%] overflow-hidden ${
+          className={`relative rounded-md w-[22rem] h-[18rem] md:h-[23rem] md:w-[27rem] left-[5%] overflow-hidden md:left-[30%] ${
             videodiv == false && "hidden"
           }`}
         >
           {video.map((item) => {
             return (
               <motion.div
-                animate={{ y: -pos + `rem` }}
-                className="h-full w-full rounded-md"
+                animate={{ y: -pos + `rem`}}
+                className="h-full w-full mb-48 md:mb-0 rounded-md z-100"
                 transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.4 }}
               >
                 <video
